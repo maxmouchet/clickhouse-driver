@@ -5,12 +5,8 @@ from codecs import open
 from setuptools import setup, find_packages
 from distutils.extension import Extension
 
-try:
-    from Cython.Build import cythonize
-except ImportError:
-    USE_CYTHON = False
-else:
-    USE_CYTHON = True
+from Cython.Build import cythonize
+USE_CYTHON = True
 
 USE_NUMPY = bool(os.getenv('USE_NUMPY', False))
 CYTHON_TRACE = bool(os.getenv('CYTHON_TRACE', False))
