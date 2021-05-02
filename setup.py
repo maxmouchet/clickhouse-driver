@@ -76,7 +76,7 @@ if USE_NUMPY:
     tests_require.extend(['numpy', 'pandas'])
 
 setup(
-    name='clickhouse-driver',
+    name='clickhouse-driver-ipv6',
     version=read_version(),
 
     description='Python driver with native interface for ClickHouse',
