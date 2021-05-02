@@ -25,3 +25,11 @@ jobs:
           CIBW_ARCHS_MACOS: x86_64 arm64
           CIBW_ARCHS_LINUX: x86_64 aarch64
           CIBW_BUILD: cp36-* cp37-* cp38-* cp39-*
+
+      - name: Publish to PyPI
+        run: |
+          python3 -m pip install --upgrade build twine
+          python3 -m twine upload --skip-existing wheelhouse/*.whl
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
